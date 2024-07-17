@@ -1,0 +1,5 @@
+(define (substitute sent old-word new-word)
+  (cond ((equal? sent '()) '())
+        ((equal? (first sent) old-word)
+         (sentence new-word (substitute (bf sent) old-word new-word)))
+        (else (sentence (first sent) (substitute (bf sent) old-word new-word)))))

@@ -1,0 +1,5 @@
+(define (keep predicate? sent)
+  (cond ((empty? sent) '())
+        ((predicate? (first sent)) 
+         (sentence (first sent) (keep predicate? (bf sent))))
+        (else (keep predicate? (bf sent)))))

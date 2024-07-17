@@ -1,0 +1,8 @@
+(define (pi-product x)
+  (define (next x) (+ x 1))
+  (define (square x) (* x x))
+  (define (odd-square x) (square (+ (* 2 x) 1)))
+  (define (even-term x) (*  4 x (+ x 1)))
+  (define (odd) (product odd-square next 1 (/ x 2))) 
+  (define (even) (product even-term next 1 (/ x 2)))
+  (* 4.0 (/ (even) (odd))))
