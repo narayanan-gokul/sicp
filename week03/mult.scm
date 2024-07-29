@@ -1,0 +1,15 @@
+(define (* a b)
+  (cond ((= 0 b) 0)
+	((= 1 b) a)
+	((even? b) (* (double a) (half b)))
+	(else (+ a (* a (- b 1))))))
+
+(define (double x) (+ x x))
+(define (half x) (/ x 2))
+
+(define (* a b)
+  (define (mult-iter result a b)
+    (cond ((= 0 b) result)
+	  ((even? b) (mult-iter result (double a) (half b)))
+	  (else (mult-iter (+ result a) a (- b 1)))))
+  (mult-iter 0 a b))

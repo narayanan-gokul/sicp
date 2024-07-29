@@ -1,0 +1,11 @@
+(define (fast-exp x n)
+  (cond ((= 0 n) 1)
+	((even? n) (square (fast-exp x (/ n 2))))
+	(else (* x (fast-exp x (- n 1))))))
+
+(define (fast-exp x n)
+  (define (exp-iter a b n)
+    (cond ((= 0 n) a)
+	  ((even? n) (exp-iter a (* b b) (/ n 2)))
+	  (else (exp-iter (* a b) b (- n 1)))))
+  (exp-iter 1 x n))
