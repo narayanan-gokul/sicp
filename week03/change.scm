@@ -3,9 +3,8 @@
     (cond
       ((= amount 0) 1)
       ((or (< amount 0) (= kind-of-coin 0)) 0)
-      (else
-	(+ (counter amount (- kind-of-coin 1))
-	   (counter (- amount (denomination kind-of-coin)) kind-of-coin)))))
+      (else (+ (counter amount (- kind-of-coin 1))
+	       (counter (- amount (denomination kind-of-coin)) kind-of-coin)))))
 
   (define (denomination coin)
     (cond 
