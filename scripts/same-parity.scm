@@ -1,0 +1,10 @@
+(define (filter pred? items)
+  (cond ((null? items) items)
+		((pred? (car items)) (cons (car items) (filter pred? (cdr items))))
+		(else (filter pred? (cdr items))
+		)))
+
+(define (same-parity num . nums)
+  (if (even? num)
+	(cons num (filter even? nums))
+	(cons num (filter odd? nums))))
